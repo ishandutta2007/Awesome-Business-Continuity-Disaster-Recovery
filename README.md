@@ -1,7 +1,5 @@
 # Awesome-Business-Continuity-Disaster-Recovery
 
-# Awesome-Business-Continuity-Disaster-Recovery
-
 **Top Business Continuity Disaster Recovery (Opensource) 🌟 Star if you like it! 🌟**
 
 
