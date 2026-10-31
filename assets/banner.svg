@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d"/>
+      <stop offset="50%" stop-color="#070a14"/>
+      <stop offset="100%" stop-color="#030509"/>
+    </linearGradient>
+    <linearGradient id="cyber-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="50%" stop-color="#4facfe"/>
+      <stop offset="100%" stop-color="#7f00ff"/>
+    </linearGradient>
+    <linearGradient id="shield-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#7f00ff" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="accent-green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00ff87"/>
+      <stop offset="100%" stop-color="#60efff"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="cyber-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 242, 254, 0.05)" stroke-width="1"/>
+    </pattern>
+
+    <!-- Glowing Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .title-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 800;
+      font-size: 46px;
+      fill: #ffffff;
+      letter-spacing: -1px;
+    }
+    .subtitle-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      fill: #00f2fe;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .desc-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      fill: #94a3b8;
+    }
+    .badge-text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      fill: #e2e8f0;
+    }
+
+    /* SVG Dynamic animations */
+    @keyframes pulseOrb {
+      0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.35; }
+      50% { transform: scale(1.15) translate(-20px, 15px); opacity: 0.65; }
+    }
+    @keyframes pulseBeam {
+      0% { stroke-dashoffset: 1000; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes radarScan {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .orb-1 { animation: pulseOrb 8s ease-in-out infinite alternate; }
+    .orb-2 { animation: pulseOrb 10s ease-in-out infinite alternate-reverse; }
+    .circuit-line {
+      stroke-dasharray: 80, 40;
+      animation: pulseBeam 25s linear infinite;
+    }
+    .floating-card-1 { animation: floatCard 6s ease-in-out infinite; }
+    .floating-card-2 { animation: floatCard 7s ease-in-out infinite 1s; }
+    .floating-card-3 { animation: floatCard 6.5s ease-in-out infinite 2s; }
+  </style>
+
+  <!-- Background Layer -->
+  <rect width="100%" height="100%" fill="url(#bg-grad)"/>
+  <rect width="100%" height="100%" fill="url(#cyber-grid)"/>
+
+  <!-- Dynamic Glowing Orbs in Background -->
+  <g filter="url(#glow)">
+    <circle class="orb-1" cx="200" cy="80" r="140" fill="#7f00ff" opacity="0.35"/>
+    <circle class="orb-2" cx="1020" cy="320" r="180" fill="#00f2fe" opacity="0.3"/>
+    <circle class="orb-1" cx="880" cy="90" r="100" fill="#00ff87" opacity="0.15"/>
+  </g>
+
+  <!-- Dynamic Circuit Pathways -->
+  <g fill="none" stroke="url(#cyber-glow)" stroke-width="1.5" opacity="0.4" class="circuit-line">
+    <path d="M 0,210 L 250,210 L 320,280 L 750,280 L 820,210 L 1200,210" />
+    <path d="M 0,340 L 180,340 L 260,390 L 900,390 L 960,340 L 1200,340" />
+    <path d="M 150,0 L 150,120 L 220,180" />
+    <path d="M 1050,0 L 1050,150 L 980,210" />
+  </g>
+
+  <!-- Dynamic Floating Decorative Tech Cards (Background Right) -->
+  <g class="floating-card-1" opacity="0.85">
+    <rect x="860" y="55" width="280" height="65" rx="12" fill="#0f172a" stroke="rgba(0, 242, 254, 0.4)" stroke-width="1.2"/>
+    <circle cx="885" cy="87" r="10" fill="#00ff87" opacity="0.2"/>
+    <circle cx="885" cy="87" r="5" fill="#00ff87"/>
+    <text x="910" y="83" class="badge-text" font-size="13">RPO: Near Zero Continuous</text>
+    <text x="910" y="103" class="desc-text" font-size="11">Journal-Based CDP Active</text>
+  </g>
+
+  <g class="floating-card-2" opacity="0.9">
+    <rect x="890" y="145" width="270" height="65" rx="12" fill="#0f172a" stroke="rgba(127, 0, 255, 0.5)" stroke-width="1.2"/>
+    <circle cx="915" cy="177" r="10" fill="#7f00ff" opacity="0.2"/>
+    <circle cx="915" cy="177" r="5" fill="#a855f7"/>
+    <text x="940" y="173" class="badge-text" font-size="13">Cyber Vault Air-Gap</text>
+    <text x="940" y="193" class="desc-text" font-size="11">Immutable Object Lock 100%</text>
+  </g>
+
+  <g class="floating-card-3" opacity="0.85">
+    <rect x="850" y="235" width="290" height="65" rx="12" fill="#0f172a" stroke="rgba(79, 172, 254, 0.4)" stroke-width="1.2"/>
+    <circle cx="875" cy="267" r="10" fill="#00f2fe" opacity="0.2"/>
+    <circle cx="875" cy="267" r="5" fill="#00f2fe"/>
+    <text x="900" y="263" class="badge-text" font-size="13">Bare-Metal &amp; Cloud Failover</text>
+    <text x="900" y="283" class="desc-text" font-size="11">Instant Cross-Region DR</text>
+  </g>
+
+  <!-- Foreground Title and Branding Content (Never obscured) -->
+  <g transform="translate(80, 0)">
+    <!-- Subtitle / Tagline Pill -->
+    <g transform="translate(0, 75)">
+      <rect x="0" y="0" width="360" height="32" rx="16" fill="rgba(0, 242, 254, 0.12)" stroke="rgba(0, 242, 254, 0.4)" stroke-width="1"/>
+      <circle cx="16" cy="16" r="4" fill="#00ff87"/>
+      <text x="32" y="21" class="subtitle-text" font-size="12">ENTERPRISE RESILIENCE &amp; BCDR DIRECTORY</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="165" class="title-text">
+      Business Continuity &amp;
+    </text>
+    <text x="0" y="220" class="title-text" fill="url(#cyber-glow)">
+      Disaster Recovery
+    </text>
+
+    <!-- Description -->
+    <text x="0" y="265" class="desc-text" font-size="16">
+      Curated directory of SaaS resilience suites and open-source backup &amp; DR platforms.
+    </text>
+    <text x="0" y="292" class="desc-text" font-size="15">
+      Cyber vaults, immutable backups, continuous data protection (CDP), and bare-metal restore.
+    </text>
+
+    <!-- Feature Badges -->
+    <g transform="translate(0, 330)">
+      <!-- Pill 1 -->
+      <g>
+        <rect x="0" y="0" width="140" height="34" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
+        <text x="14" y="22" class="badge-text">🛡️ Cyber Recovery</text>
+      </g>
+      <!-- Pill 2 -->
+      <g transform="translate(152, 0)">
+        <rect x="0" y="0" width="160" height="34" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
+        <text x="14" y="22" class="badge-text">🔒 Immutable Vaults</text>
+      </g>
+      <!-- Pill 3 -->
+      <g transform="translate(324, 0)">
+        <rect x="0" y="0" width="170" height="34" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
+        <text x="14" y="22" class="badge-text">⚡ DR Orchestration</text>
+      </g>
+      <!-- Pill 4 -->
+      <g transform="translate(506, 0)">
+        <rect x="0" y="0" width="150" height="34" rx="8" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
+        <text x="14" y="22" class="badge-text">💻 Bare-Metal Sync</text>
+      </g>
+    </g>
+  </g>
+</svg>
